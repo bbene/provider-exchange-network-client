@@ -1,0 +1,17 @@
+{
+    "name": "bbene/provider-exchange-network-client",
+    "description": "SOAP Client implementation for Provider Exchange Network's SOAP API.",
+    "type": "library",
+    "require": {
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ben Benesh",
+            "email": "code@benjaminbenesh.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {"ProviderExchangeNetworkClient\\":"src/"}
+    }
+}
