@@ -12,6 +12,10 @@
         }
     ],
     "autoload": {
-      "psr-4": {"ProviderExchangeNetworkClient\\":"src/"}
+      "psr-4": {"ProviderExchangeNetwork\\":"src/"}
+    },
+    "require-dev": {
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4",
+        "raulfraile/ladybug": "^1.0"
     }
 }

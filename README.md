@@ -1,0 +1,1 @@
+# Generate classes: `docker-compose exec php-fpm php src/Soap/Generator.php`
