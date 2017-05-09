@@ -3,6 +3,8 @@
     "description": "SOAP Client implementation for Provider Exchange Network's SOAP API.",
     "type": "library",
     "require": {
+        "php" : "^5.6 || ^7.0",
+        "ext-soap": "*"
     },
     "license": "MIT",
     "authors": [
