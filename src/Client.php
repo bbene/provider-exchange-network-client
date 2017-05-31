@@ -333,6 +333,9 @@ class Client
         $requestObj = new GetRates($request);
 
         $response = $this->makeApiRequest('GetRates', $requestObj);
+        if(!isset($response->GetRatesResult->Rates->Rate->Coverages->Coverage)) {
+            return [];
+        }
         $coverages = $this->serializeObjectArray($response->GetRatesResult->Rates->Rate->Coverages->Coverage, Coverage::class);
         return $coverages;
     }
