@@ -262,6 +262,10 @@ class Client
         $obj = new DSIDealInfo();
         $obj->setDealerID($dealerId);
         $obj->setVIN($vin);
+        // JM&A doesn't seem to like a 0 mileage, so we put 1 mile on a 0 mile car.
+        if($mileage === 0) {
+            $mileage = 1;
+        }
         $obj->setMileage($mileage);
 
         if(!in_array($carStatus, ["NEW", "USED", "USEDWITHFACTORY", "CERTIFIEDPREOWNED"])) {
