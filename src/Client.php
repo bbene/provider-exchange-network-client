@@ -135,10 +135,17 @@ class Client
         if(!$products || count($products) === 0) {
             return false;
         }
-        /** @var Product $product */
-        foreach ($products as $product) {
-            if ($product->getProductType() === "GAP") {
-                return $product->getProductID();
+        if(is_array($products)) {
+            /** @var Product $product */
+            foreach ($products as $product) {
+                if ($product->ProductType === "GAP") {
+                    return $product->ProductID;
+                }
+            }
+        } else {
+            /** @var Product $products */
+            if ($products->getProductType() === "GAP") {
+                return $products->getProductID();
             }
         }
         return false;
@@ -180,7 +187,11 @@ class Client
     private function callSetDealer($dealerID, $name, $timezone = TimeZone::Central, $isTestDealer = false)
     {
         $dealer = new DSISetDealerRequest();
-        $dealer->setAction(RegistrationAction::UPDATE);
+        if($dealerID === 0) {
+            $dealer->setAction(RegistrationAction::REGISTER);
+        } else {
+            $dealer->setAction(RegistrationAction::UPDATE);
+        }
         $dealer->setDealershipName($name);
         $dealer->setDealerID($dealerID);
         $dealer->setTimeZone($timezone);
