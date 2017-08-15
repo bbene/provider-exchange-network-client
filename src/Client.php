@@ -121,7 +121,12 @@ class Client
             return false;
         }
         $products = $request->GetProductsResult->Products->Product;
-        return $this->serializeObjectArray($products, Product::class);
+        if(is_array($products)) {
+            return $this->serializeObjectArray($products, Product::class);
+        } else {
+            return $this->serializeObject($products, Product::class);
+        }
+
     }
 
     /**
