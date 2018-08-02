@@ -144,7 +144,7 @@ class Client
             /** @var Product $product */
             foreach ($products as $product) {
                 if ($product->getProductType() === "GAP") {
-                    return $product->ProductID;
+                    return $product->getProductID();
                 }
             }
         } else {
